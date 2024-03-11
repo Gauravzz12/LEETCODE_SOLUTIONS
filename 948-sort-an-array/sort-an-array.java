@@ -17,7 +17,6 @@ class Solution {
         mergeSort(nums,left,right);
         return nums;
     }
-
    public void mergeSort(int[] nums,int[] left,int[] right){
         int l=left.length;
 		int r=right.length;
@@ -34,8 +33,7 @@ class Solution {
 			k++;
 		}
 		while(i<l) {
-			nums[k++]=left[i++];
-			
+			nums[k++]=left[i++];	
 		}
 		while(j<r) {
 			nums[k++]=right[j++];
