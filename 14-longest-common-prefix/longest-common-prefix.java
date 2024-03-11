@@ -9,6 +9,7 @@ class Solution {
            if(start.charAt(i)!=end.charAt(i)){
                return ans.toString();
            }
+           
            ans.append(start.charAt(i));
        }
        return ans.toString();
