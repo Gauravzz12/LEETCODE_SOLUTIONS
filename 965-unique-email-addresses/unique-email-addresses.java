@@ -10,7 +10,6 @@ class Solution {
     public String strip(String e) {
         int i = 0;
         StringBuilder res = new StringBuilder();
-        
         while (i < e.length()) {
             char c = e.charAt(i);
             if (c == '+') {
