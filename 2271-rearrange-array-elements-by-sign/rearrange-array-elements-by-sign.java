@@ -11,7 +11,7 @@ class Solution {
             } else if (nums[i] < 0) {
                 result[negativePointer] = nums[i];
                 negativePointer += 2;
-            } else {}
+            }
         }
         
         return result;
