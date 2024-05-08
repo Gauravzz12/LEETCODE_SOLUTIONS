@@ -7,9 +7,7 @@ class Solution {
         }   
         
         Collections.sort(res, (x, y) -> (y.a - x.a));
-          for (pair p : res) {
-            System.out.println("(" + p.a + ", " + p.b + ")");
-        }
+         
         for(int i=0;i<score.length;i++){
            if(i==0){
              ans[res.get(i).b-1]="Gold Medal";
