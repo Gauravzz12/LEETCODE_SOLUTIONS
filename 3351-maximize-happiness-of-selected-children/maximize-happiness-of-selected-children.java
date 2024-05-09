@@ -18,8 +18,3 @@ class Solution {
         return sum;
     }
 }
-// 1 0
-// 2 1
-// 3 3
-// 4 6
-// 5 10
