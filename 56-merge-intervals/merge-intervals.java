@@ -1,24 +1,23 @@
-class Solution {
-    public int[][] merge(int[][] arr) {
-        Arrays.sort(arr, (a, b) -> (a[0] - b[0]));
-        List<List<Integer>> ans = new ArrayList<>();
-        int lastEnd = 0; 
+import java.util.ArrayList;
+import java.util.Arrays;
 
-        for (int i = 0; i < arr.length; i++) {
-            if (ans.isEmpty() || arr[i][0] > ans.get(ans.size() - 1).get(1)) {
-                ans.add(Arrays.asList(arr[i][0], arr[i][1]));
-                lastEnd = arr[i][1]; 
+class Solution {
+    public int[][] merge(int[][] intervals) {
+        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+        ArrayList<int[]> ans = new ArrayList<>();
+        int[] currentInterval = intervals[0]; 
+        ans.add(currentInterval);
+        for (int i = 1; i < intervals.length; i++) {
+            int currentEnd = currentInterval[1];
+            int nextStart = intervals[i][0];
+            int nextEnd = intervals[i][1];
+            if (currentEnd >= nextStart) {
+                currentInterval[1] = Math.max(currentEnd, nextEnd);
             } else {
-                ans.get(ans.size() - 1).set(1, Math.max(ans.get(ans.size() - 1).get(1), arr[i][1]));
-                lastEnd = Math.max(lastEnd, arr[i][1]); 
+                currentInterval = intervals[i];
+                ans.add(currentInterval);
             }
         }
-
-        int[][] result = new int[ans.size()][2];
-        for (int i = 0; i < ans.size(); i++) {
-            result[i][0] = ans.get(i).get(0);
-            result[i][1] = ans.get(i).get(1);
-        }
-        return result;
+        return ans.toArray(new int[ans.size()][]);
     }
 }
